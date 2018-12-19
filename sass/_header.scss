@@ -22,11 +22,14 @@
 }
 
 .home {
+
+    grid-column: full-start / full-end;
     background: url(../img/cover.jpg); 
     background-color: #222;
     height: 100vh;
     background-position: 50% 0%;
     background-size: cover;
+    background-attachment: fixed;
     padding: 0;
 
     &-overlay {

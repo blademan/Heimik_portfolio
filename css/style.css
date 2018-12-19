@@ -21,12 +21,18 @@ body {
   font-weight: 300;
   color: #666; }
 
+.container {
+  display: grid;
+  grid-template-rows: 100vh repeat(8, min-content);
+  grid-template-columns: [full-start] minmax(5rem, 1fr) [center-start] 8fr [center-end] minmax(5rem, 1fr) [full-end]; }
+
 img {
   max-width: 100%;
   height: auto; }
 
 a {
-  color: #E7746F; }
+  color: #E7746F;
+  text-decoration: none; }
 
 a:hover {
   text-decoration: none;
@@ -88,11 +94,13 @@ h6 {
   transform: translate(-50%, -50%); }
 
 .home {
+  grid-column: full-start / full-end;
   background: url(../img/cover.jpg);
   background-color: #222;
   height: 100vh;
   background-position: 50% 0%;
   background-size: cover;
+  background-attachment: fixed;
   padding: 0; }
   .home-overlay {
     background-color: rgba(44, 62, 80, 0.3);
@@ -160,3 +168,68 @@ h6 {
   100% {
     top: 25px;
     opacity: 0; } }
+
+.nav {
+  background-color: white;
+  position: sticky;
+  top: 0;
+  padding: 2rem;
+  grid-column: full-start / full-end;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  box-sizing: border-box; }
+  .nav__name {
+    grid-column: 2 /4;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: .3rem;
+    font-family: Lobster, cursive; }
+  .nav__list {
+    grid-column: 6/10;
+    text-transform: uppercase;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    align-content: center;
+    justify-items: center; }
+  .nav__link {
+    font-size: 1.2rem;
+    letter-spacing: .3rem;
+    color: #222; }
+  .nav__active {
+    background: none;
+    outline: 0;
+    color: #E7746F; }
+  .nav__link:hover, .nav__link:active, .nav__link:focus {
+    background: none;
+    outline: 0;
+    color: #E7746F; }
+
+.services {
+  background-color: gray;
+  grid-column: center-start / center-end; }
+
+.portfolio {
+  background-color: gray;
+  grid-column: center-start / center-end; }
+
+.skills {
+  background-color: gray;
+  grid-column: center-start / center-end; }
+
+.calltoaction {
+  background-color: gray;
+  grid-column: full-start / full-end; }
+
+.testimonials {
+  background-color: gray;
+  grid-column: center-start / center-end; }
+
+.contact {
+  background-color: gray;
+  grid-column: center-start / center-end; }
+
+.footer {
+  background-color: gray;
+  grid-column: center-start / center-end; }
