@@ -15,6 +15,9 @@
 
 html {
   font-size: 62.5%; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 50%; } }
 
 body {
   font-family: 'Raleway', sans-serif;
@@ -24,7 +27,7 @@ body {
 .container {
   display: grid;
   grid-template-rows: 100vh repeat(8, min-content);
-  grid-template-columns: [full-start] minmax(5rem, 1fr) [center-start] 8fr [center-end] minmax(5rem, 1fr) [full-end]; }
+  grid-template-columns: [full-start] minmax(5rem, 1fr) [center-start] 12fr [center-end] minmax(5rem, 1fr) [full-end]; }
 
 img {
   max-width: 100%;
@@ -98,19 +101,23 @@ h6 {
   background: url(../img/cover.jpg);
   background-color: #222;
   height: 100vh;
-  background-position: 50% 0%;
+  background-position: 50% 50%;
   background-size: cover;
   background-attachment: fixed;
+  background-repeat: no-repeat;
   padding: 0; }
   .home-overlay {
     background-color: rgba(44, 62, 80, 0.3);
     background-image: url(../img/pattern.png);
+    background-repeat: repeat;
     position: absolute;
+    padding: 0;
     top: 0;
     left: 0;
+    bottom: 0;
+    right: 0;
     width: 100%;
-    height: 100%;
-    z-index: 10; }
+    z-index: 1; }
   .home__heading {
     color: #fff;
     position: absolute;
@@ -176,27 +183,46 @@ h6 {
   padding: 2rem;
   grid-column: full-start / full-end;
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  box-sizing: border-box; }
+  grid-template-columns: 1fr 4fr;
+  box-sizing: border-box;
+  z-index: 9000; }
+  @media only screen and (max-width: 37.5em) {
+    .nav {
+      grid-template-columns: 1fr; } }
   .nav__name {
-    grid-column: 2 /4;
+    margin-left: 10%;
     font-size: 2.2rem;
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: .3rem;
     font-family: Lobster, cursive; }
+    @media only screen and (max-width: 50em) {
+      .nav__name {
+        font-size: 2rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .nav__name {
+        display: none; } }
   .nav__list {
-    grid-column: 6/10;
+    display: block;
+    margin-right: 2vw;
     text-transform: uppercase;
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
     align-content: center;
-    justify-items: center; }
+    justify-items: right;
+    grid-template-columns: repeat(6, 1fr); }
+    @media only screen and (max-width: 50em) {
+      .nav__list {
+        justify-items: center; } }
   .nav__link {
-    font-size: 1.2rem;
-    letter-spacing: .3rem;
+    display: block;
+    font-size: 1.1rem;
+    letter-spacing: .2rem;
     color: #222; }
+    @media only screen and (max-width: 37.5em) {
+      .nav__link {
+        font-size: 1rem;
+        letter-spacing: .1rem; } }
   .nav__active {
     background: none;
     outline: 0;
@@ -208,7 +234,68 @@ h6 {
 
 .services {
   background-color: gray;
-  grid-column: center-start / center-end; }
+  grid-column: full-start / full-end;
+  background: #f5f5f5;
+  display: grid;
+  grid-template-columns: 9% repeat(4, 1fr) 9%;
+  padding: 15rem 0; }
+  @media only screen and (max-width: 62.5em) {
+    .services {
+      padding: 12rem 0; } }
+  .services-header {
+    color: #222;
+    font-weight: 800;
+    font-size: 3rem; }
+  .services-line {
+    background: rgba(135, 135, 135, 0.5);
+    width: 10rem;
+    height: .1rem;
+    margin: 3rem auto; }
+  .services-subtitle {
+    font-size: 1.8rem;
+    font-weight: normal; }
+  .services__header {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin: 8rem 0;
+    transition: all 2s; }
+  .services__item {
+    grid-column: 2 / 6;
+    grid-column-gap: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); }
+    @media only screen and (max-width: 62.5em) {
+      .services__item {
+        grid-column-gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); } }
+    @media only screen and (max-width: 50em) {
+      .services__item {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1.5rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .services__item {
+        grid-template-columns: 1fr;
+        grid-gap: 1.5rem; } }
+  .services__icon {
+    font-size: 3rem; }
+  .services__text {
+    padding: 6rem 2rem;
+    display: grid;
+    grid-row-gap: 2rem;
+    grid-template-columns: 1fr;
+    background-color: white;
+    text-align: center;
+    font: 300 1.4rem/1.8 'Raleway', sans-serif;
+    color: #666;
+    border-bottom: 1px solid #d4d4d4; }
+    @media only screen and (max-width: 62.5em) {
+      .services__text {
+        padding: 3rem 2rem; } }
+  .services__title {
+    font-size: 1.6rem;
+    text-align: center;
+    color: #222;
+    font-weight: 700; }
 
 .portfolio {
   background-color: gray;

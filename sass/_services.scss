@@ -1,4 +1,94 @@
 .services {
     background-color: gray;
-    grid-column: center-start / center-end;
+    grid-column: full-start / full-end;
+    background: #f5f5f5;
+
+    display: grid;
+    grid-template-columns: 9% repeat(4, 1fr) 9%;
+   // grid-template-columns: repeat(10, 1fr);
+    
+    padding: 15rem 0;
+    @media only screen and (max-width: $bp-large){
+        padding: 12rem 0;
+    }
+
+    &-header {
+        color: #222;
+        font-weight: 800;
+        font-size: 3rem;
+    }
+    &-line {
+        background: rgba(135, 135, 135, 0.5);
+        width: 10rem;
+        height: .1rem;
+        margin: 3rem auto;
+    }
+
+    &-subtitle {
+        font-size: 1.8rem;
+        font-weight: normal;
+    }
+    
+
+    &__header {
+        grid-column: 1 / -1;
+        text-align: center;
+        margin: 8rem 0;
+        transition: all 2s;
+    }
+
+    &__item {
+       
+        grid-column:  2 / 6;
+        grid-column-gap: 3rem;
+
+        display: grid;
+        grid-template-columns:repeat(auto-fit, minmax(20rem, 1fr));
+        @media only screen and (max-width: $bp-large){
+            grid-column-gap: 1.5rem;
+            grid-template-columns:repeat(auto-fit, minmax(18rem, 1fr));
+        }
+
+        @media only screen and (max-width: $bp-medium){
+            grid-template-columns:repeat(2, 1fr);
+            grid-gap: 1.5rem;
+        }
+        @media only screen and (max-width: $bp-small){
+            grid-template-columns:1fr;
+            grid-gap: 1.5rem;
+        }
+      
+        
+       
+    }
+
+    &__icon {
+        font-size: 3rem;
+    }
+
+    &__text {
+        padding: 6rem 2rem;
+        display: grid;
+        grid-row-gap: 2rem;      
+    
+        grid-template-columns: 1fr;
+
+        background-color: white;
+        text-align: center;
+        font: 300 1.4rem/1.8 'Raleway', sans-serif;
+        color: #666;
+        border-bottom: 1px solid #d4d4d4;
+        @media only screen and (max-width: $bp-large){
+            padding: 3rem 2rem;
+        }
+       
+    }
+    &__title {
+        font-size: 1.6rem;
+        text-align: center;
+        color: #222;
+        font-weight: 700;
+    }
+    
+
 }
